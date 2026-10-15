@@ -599,7 +599,8 @@ def extract_operators(tokens: List[Token]) -> List[Tuple[str, str]]:
             elif val == "defined?":
                 operators.append(("defined?", val))
             elif val in CONDITIONAL_OPERATORS:
-                operators.append(("Условия и ветвления", val))
+                display = "case..when" if val == "when" else val
+                operators.append(("Условия и ветвления", display))
             elif val in LOOP_OPERATORS:
                 operators.append(("Циклы", val))
             elif val in RETURN_OPERATORS:
